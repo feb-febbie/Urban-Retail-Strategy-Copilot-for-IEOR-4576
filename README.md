@@ -2,7 +2,7 @@
 
 ### *"Where should I open my store?" — answered like a real data analyst, not a guess.*
 
-> **Live demo:** [http://70.111.84.196:8080](http://70.111.84.196:8080)
+> **Live demo:** [https://urban-retail-copilot-y367agrziq-uc.a.run.app](https://urban-retail-copilot-y367agrziq-uc.a.run.app)
 >
 > Open this link on any device (phone, tablet, laptop) to try the app live.
 
