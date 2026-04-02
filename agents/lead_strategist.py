@@ -250,8 +250,14 @@ high noise quadrant and are unsuitable for a quiet, experience-driven concept."
 
 **Scoring formula (required, explain it):**
 State: score = 0.35·traffic − 0.30·noise + 0.25·synergy − 0.10·saturation
-Define each term. Define synergy as "density of libraries, bookshops, and cultural anchors per km²."
+Define each term:
+- traffic = log-transformed pedestrian exits, proxy for demand
+- noise = complaints per 1k exits, proxy for environmental friction
+- synergy = density of libraries, bookshops, and cultural anchors per km² (from OSM Overpass data)
+- saturation = competitor density per km² (from OSM Overpass data — DO NOT say "not available")
 Add: "All features are min-max normalized before scoring, ensuring comparability across scales."
+CRITICAL: saturation data WAS collected from OpenStreetMap. The lq_competitor column in the
+candidates list contains Location Quotient values. Never write "not available in this analysis."
 
 **Trade-off statement (required):**
 Include: "This recommendation reflects a deliberate trade-off: the highest-traffic ZIP is bypassed
@@ -340,8 +346,10 @@ Call finalize_hypothesis with a strategic memo in markdown that:
     alternatives (trade-off between volume and noise/zoning feasibility).
   - Explicitly states the scoring formula:
     score = 0.35·traffic − 0.30·noise + 0.25·synergy − 0.10·saturation
-    Define each term. Define synergy as "density of restaurants, cafés, and tourist attractions
-    per km²." Add: "All features are min-max normalized before scoring."
+    Define each term: traffic = log-transformed exits; noise = complaints per 1k exits;
+    synergy = density of restaurants, cafés, and tourist attractions per km² (OSM data);
+    saturation = competitor density per km² (OSM data — DO NOT say "not available").
+    Add: "All features are min-max normalized before scoring."
   - Includes a candidate table: ZIP, neighborhood, total exits, complaints per 1k, score, zoning.
   - Notes which ZIPs were eliminated by noise vs. which by zoning (separate these reasons).
   - Notes confidence level and key limitations (7-day window, no rent data, not legal advice).
