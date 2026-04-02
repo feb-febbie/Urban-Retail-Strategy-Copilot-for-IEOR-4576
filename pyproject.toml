@@ -1,0 +1,49 @@
+[project]
+name = "urban-retail-strategy-copilot"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    # LLM + Agent framework
+    "anthropic>=0.40.0",
+    # openai SDK bridges Groq / Gemini / Ollama (all have OpenAI-compat endpoints)
+    "openai>=1.30.0",
+    # google-auth enables Application Default Credentials on Cloud Run (no key needed)
+    "google-auth>=2.0.0",
+    # google-genai native SDK — vertexai=True uses ADC without Model Garden approval
+    "google-genai>=1.0.0",
+    "langgraph>=0.2.55",
+
+    # Frontend
+    "streamlit>=1.40.0",
+
+    # Data processing
+    "pandas>=2.2.0",
+    "numpy>=1.26.0,<2.0",  # torch 2.2.x compiled against numpy 1.x (binary ABI)
+    "scipy>=1.11.0",
+
+    # Geospatial — uses bundled GDAL/GEOS/PROJ wheels (no system libs needed)
+    "geopandas>=0.14.0",
+    "shapely>=2.0.0",
+    "pyogrio>=0.7.0",   # replaces fiona; ships with bundled GDAL
+    "pyproj>=3.6.0",    # ships with bundled PROJ
+
+    # Visualization
+    "matplotlib>=3.8.0",
+
+    # HTTP
+    "requests>=2.31.0",
+
+    # RAG / vector store
+    "sentence-transformers>=3.0.0",
+    "faiss-cpu>=1.7.4",
+    # torch 2.3+ dropped Intel Mac wheels; pin for local dev on x86 Mac
+    "torch>=2.0.0,<2.3; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    # transformers 4.47+ has a bug using nn.Module without importing torch.nn
+    "transformers>=4.40.0,<4.47",
+
+    # PDF ingestion
+    "pypdf>=4.0.0",
+
+    # Env vars
+    "python-dotenv>=1.0.0",
+]

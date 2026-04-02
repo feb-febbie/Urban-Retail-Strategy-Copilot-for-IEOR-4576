@@ -1,0 +1,11 @@
+[server]
+port = 8080
+headless = true
+address = "0.0.0.0"
+# Allow iframe embedding (for Cloud Run preview)
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+# Suppress the "email" prompt on first run
+gatherUsageStats = false

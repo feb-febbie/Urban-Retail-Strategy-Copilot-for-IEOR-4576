@@ -1,0 +1,13 @@
+.env
+.venv
+.git
+__pycache__
+**/__pycache__
+*.pyc
+*.pyo
+.DS_Store
+data/shapefiles/
+data/vectorstore/
+data/pdfs/
+*.png
+*.jpg
