@@ -137,7 +137,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
     border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 10px;
-    cursor: pointer;
+    cursor: default;
 }
 .query-concept { font-size: 0.9rem; font-weight: 600; color: #1a1a2e; }
 .query-insight { font-size: 0.82rem; color: #5f6368; margin-top: 2px; }
