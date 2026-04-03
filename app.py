@@ -177,8 +177,8 @@ div[data-testid="metric-container"] {
     padding: 16px;
 }
 
-/* ── Sidebar ── */
-section[data-testid="stSidebar"] { background: #fafafa; }
+/* ── Sidebar — inherit theme colors so dark mode works ── */
+section[data-testid="stSidebar"] { background: inherit; color: inherit; }
 </style>
 """, unsafe_allow_html=True)
 
