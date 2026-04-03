@@ -668,9 +668,12 @@ The code MUST:
      saturation_norm = normalised competitor_density
    IMPORTANT: use (x - x.min()) / (x.max() - x.min() + 1e-9) to avoid division by zero when all values are equal (e.g. all synergy_score = 0)
 7. Flag ZIPs where lq_competitor > 1.5 as "saturated hub" and lq_competitor < 0.5 as "untapped".
-8. Set `candidates` = top 5 dicts: zip_code (str), neighborhood, total_exits (int),
-   complaints_per_1k (float), score (float), station_count (int), low_confidence (bool),
-   synergy_score (float), lq_competitor (float)
+8. Set `candidates` using EXACTLY this pattern to avoid iloc index errors:
+   top5 = df_filtered.nlargest(5, 'score')
+   candidates = top5[['zip_code','neighborhood','total_exits','complaints_per_1k',
+                       'score','station_count','low_confidence','synergy_score','lq_competitor']].to_dict('records')
+   Then cast types: for c in candidates: c['zip_code']=str(c['zip_code']); c['total_exits']=int(c['total_exits'])
+   NEVER use .iloc[top5.index] — nlargest preserves original labels which crash iloc on a filtered df.
 9. Set `result` = dict with thresholds.
 10. Print findings summary.
 
@@ -699,9 +702,12 @@ The code MUST:
      saturation_norm = normalised competitor_density
    IMPORTANT: use (x - x.min()) / (x.max() - x.min() + 1e-9) to avoid division by zero when all values are equal (e.g. all synergy_score = 0)
 5. Flag ZIPs where lq_competitor > 1.5 as "established hub" and lq_competitor < 0.5 as "untapped".
-6. Set `candidates` = top 5 dicts: zip_code (str), neighborhood, total_exits (int),
-   complaints_per_1k (float), score (float), station_count (int), low_confidence (bool),
-   synergy_score (float), lq_competitor (float)
+6. Set `candidates` using EXACTLY this pattern to avoid iloc index errors:
+   top5 = df_filtered.nlargest(5, 'score')
+   candidates = top5[['zip_code','neighborhood','total_exits','complaints_per_1k',
+                       'score','station_count','low_confidence','synergy_score','lq_competitor']].to_dict('records')
+   Then cast types: for c in candidates: c['zip_code']=str(c['zip_code']); c['total_exits']=int(c['total_exits'])
+   NEVER use .iloc[top5.index] — nlargest preserves original labels which crash iloc on a filtered df.
 7. Set `result` = dict with thresholds and top synergy ZIPs.
 8. Print: which ZIPs are hubs vs untapped, and the top synergy ZIP (likely Koreatown area).
    Do NOT pre-reject Times Square — evaluate it against synergy and noise scores objectively.
@@ -731,9 +737,12 @@ The code MUST:
      saturation_norm = normalised competitor_density
    IMPORTANT: use (x - x.min()) / (x.max() - x.min() + 1e-9) to avoid division by zero when all values are equal (e.g. all synergy_score = 0)
 6. Flag ZIPs where lq_competitor > 1.5 as "saturated hub" and lq_competitor < 0.5 as "untapped".
-7. Set `candidates` = top 5 dicts: zip_code (str), neighborhood, total_exits (int),
-   complaints_per_1k (float), score (float), station_count (int), low_confidence (bool),
-   synergy_score (float), lq_competitor (float)
+7. Set `candidates` using EXACTLY this pattern to avoid iloc index errors:
+   top5 = df_filtered.nlargest(5, 'score')
+   candidates = top5[['zip_code','neighborhood','total_exits','complaints_per_1k',
+                       'score','station_count','low_confidence','synergy_score','lq_competitor']].to_dict('records')
+   Then cast types: for c in candidates: c['zip_code']=str(c['zip_code']); c['total_exits']=int(c['total_exits'])
+   NEVER use .iloc[top5.index] — nlargest preserves original labels which crash iloc on a filtered df.
 8. Set `result` = dict with thresholds.
 9. Print findings summary.
 

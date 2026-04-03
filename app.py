@@ -600,6 +600,12 @@ if st.session_state.result:
 
             st.subheader("🏆 Ranked Candidates")
             st.dataframe(df_display, use_container_width=True)
+            st.caption(
+                "**Composite Score** ranges from −0.30 to +0.35. "
+                "A negative score means the noise penalty (−0.30 weight) outweighs the traffic + synergy benefits — "
+                "the ZIP has too much environmental friction for this concept. "
+                "The recommended ZIP is always the highest-scoring location with a non-Fail zoning verdict."
+            )
         else:
             st.info("No candidate ranking data available.")
 
