@@ -425,6 +425,22 @@ with st.expander("ℹ️ How It Works", expanded=_how_it_works_expanded):
         noise penalty reflects Community Board friction risk for SLA licensing;
         synergy captures cultural co-location demand; saturation applies a light agglomeration discount.
     </div>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #c5cae9;">
+        <div class="formula-title" style="margin-bottom:8px;">⚖️ How the Score and Zoning Verdict Work Together</div>
+        <div class="formula-note" style="font-size:0.88rem;line-height:1.7;color:#1a237e;">
+            The formula and the zoning verdict serve <b>two separate roles</b> — and both are required to produce a recommendation.<br><br>
+            <b>Step 1 — Score ranks every ZIP</b> using live data. A higher score means better foot traffic,
+            quieter environment, and stronger cultural synergy for your concept. This is pure data math —
+            it knows nothing about what the law allows.<br><br>
+            <b>Step 2 — Zoning verdict gates the ranked list.</b> The Market Researcher checks each top
+            candidate against NYC Community District zoning profiles via RAG. Each ZIP receives:
+            ✅ <b>Pass</b> (permitted) · ⚠️ <b>Caution</b> (conditional) · ❌ <b>Fail</b> (prohibited or high regulatory risk).<br><br>
+            <b>The winner = highest-scoring ZIP with a non-Fail verdict.</b> This is constrained optimization:
+            maximize demand and experience quality, subject to regulatory feasibility.
+            A ZIP can score #1 on data and still be rejected — Times Square (10036) is the canonical example:
+            top foot traffic, but Fail for quiet retail due to C6-4 high-intensity zoning and extreme noise.
+        </div>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
