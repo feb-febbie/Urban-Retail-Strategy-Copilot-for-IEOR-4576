@@ -179,7 +179,7 @@ If zoning verdicts come back empty (API failure), the system retries. If the EDA
 | **Tool calling** | ✅ `execute_python`, `route_to_market_researcher`, `finalize_hypothesis` | `agents/lead_strategist.py` |
 | **Non-trivial dataset** | ✅ MTA turnstile (~600K rows/run), 311 (~2,500), OSM (~1,000 POIs), ZCTA shapefiles | `tools/nyc_data_tools.py` |
 | **Multi-agent pattern** | ✅ Orchestrator-worker: Lead Strategist orchestrates Data Engineer + Market Researcher | `graph/workflow.py` |
-| **Deployed** | ✅ [your-deployment-url-here] | — |
+| **Deployed** | ✅  | — |
 | **README** | ✅ This document | `README.md` |
 
 ### Grab-Bag (≥ 2 required, 5 pts)
